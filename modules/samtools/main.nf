@@ -14,13 +14,24 @@ process BAM_TO_CRAM {
         def prefix = task.ext.prefix ?: "${meta.id}"
         
         """
-        # Extract reference fasta from transcriptome directory
-        REFERENCE_FASTA=\$(find ${transcriptome} -type f -name "genome.fa" -o -name "*.fasta" -o -name "*.fa" | head -n 1)
-        
+        # Extract reference fasta from transcriptome directory - try specific paths first
+        if [ -f "${transcriptome}/fasta/genome.fa" ]; then
+            REFERENCE_FASTA="${transcriptome}/fasta/genome.fa"
+        elif [ -f "${transcriptome}/genome.fa" ]; then
+            REFERENCE_FASTA="${transcriptome}/genome.fa"
+        else
+            REFERENCE_FASTA=\$(find ${transcriptome} -type f -name "*.fa" | grep -E "(genome|reference)" | head -n 1)
+        fi
+
         if [ -z "\$REFERENCE_FASTA" ]; then
             echo "ERROR: Could not find reference FASTA in transcriptome directory"
+            echo "Searched in: ${transcriptome}"
+            echo "Directory structure:"
+            find ${transcriptome} -type f -name "*.fa" || true
             exit 1
         fi
+
+        echo "Using reference: \$REFERENCE_FASTA"
 
         # Convert BAM to CRAM
         samtools view \\
