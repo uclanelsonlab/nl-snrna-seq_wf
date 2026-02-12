@@ -1,0 +1,36 @@
+{
+    "fastp_docker": {
+        "description": "Fastp docker image"
+    },
+    "multiqc_docker": {
+        "description": "Multiqc docker image"
+    },
+    "cellranger_docker": {
+        "description": "Cellranger docker image"
+    },
+    "samtools_docker": {
+        "description": "Samtools docker image"
+    },
+    "fastq_r1": {
+        "description": "Fastq r1 file"
+    },
+    "fastq_r2": {
+        "description": "Fastq r2 file"
+    },
+    "sample_name": {
+        "description": "Sample name"
+    },
+    "transcriptome": {
+        "description": "Transcriptome path"
+    },
+    "chemistry": {
+        "description": "Chemistry (e.g. SC3Pv4). Omit to let Cell Ranger auto-detect.",
+        "optional": true
+    },
+    "create_bam": {
+        "description": "Create bam"
+    },
+    "expect_cells": {
+        "description": "Expect cells"
+    }
+}

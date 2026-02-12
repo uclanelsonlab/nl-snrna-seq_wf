@@ -1,0 +1,12 @@
+{
+    "fastp_docker": "224597534425.dkr.ecr.us-west-2.amazonaws.com/fastp:1.0.1--heae3180_0",
+    "multiqc_docker": "224597534425.dkr.ecr.us-west-2.amazonaws.com/multiqc:1.33--pyhdfd78af_0",
+    "cellranger_docker": "224597534425.dkr.ecr.us-west-2.amazonaws.com/cellranger:10.0.0",
+    "samtools_docker": "224597534425.dkr.ecr.us-west-2.amazonaws.com/samtools:1.19.2--h50ea8bc_1",
+    "fastq_r1": "s3://ucla-rare-diseases/UCLA-UDN/gcarvalho_test/rnaseq/snrna/CDMD8303/raw_data/P1-3GEX_S25_R1_001.fastq.gz",
+    "fastq_r2": "s3://ucla-rare-diseases/UCLA-UDN/gcarvalho_test/rnaseq/snrna/CDMD8303/raw_data/P1-3GEX_S25_R2_001.fastq.gz",
+    "sample_name": "P1-3GEX_S25",
+    "transcriptome": "s3://ucla-rare-diseases/aws-healthomics-pipelines/assets/references/refdata-gex-GRCh38-2024-A/",
+    "create_bam": true,
+    "expect_cells": 5000
+}
